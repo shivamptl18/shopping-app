@@ -2,7 +2,7 @@
  * SE 333 Class project
  * Author: Dan Walker
  * Copyright 2020
- * TEST
+ *
  */
 package edu.depaul.se433.shoppingapp;
 
