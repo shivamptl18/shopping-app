@@ -1,0 +1,5 @@
+﻿Inittal Cost,State,Shipping Type,Expected Result (cost)
+40,IL,STANDARD,53
+50,NY,STANDARD,63.6
+50,CO,STANDARD,60
+50,IL,NEXT_DAY,79.5

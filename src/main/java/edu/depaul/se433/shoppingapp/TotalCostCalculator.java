@@ -35,5 +35,7 @@ public class TotalCostCalculator {
     } else {
       return shipping.value;
     }
+
+
   }
 }
