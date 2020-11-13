@@ -69,65 +69,113 @@ public class TotalCostCalculatorTest {
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         /*BOUNDARY TEST??*/
 
+    /*Test boundary cost of 49.98, 50.00, 50.01 when shipping is STANDARD and state with TAX*/
     @Test
-    @DisplayName("test standard shipping when total cost is 50")
+    @DisplayName("Test boundary when cost is 49.98 on standard shipping and state with TAX")
     void test1() {
-        double result = calculate(50.0, "Colarado",ShippingType.STANDARD);
-        assertEquals(60.0, result);
+        double result = calculate(49.98,"IL",ShippingType.STANDARD);
+        assertEquals(63.57, result,2);
     }
 
     @Test
+    @DisplayName("Test boundary when cost is 50.00 on standard shipping and state with TAX")
     void test2() {
-        double result = calculate(60.0, "IL",ShippingType.STANDARD);
-        assertEquals(63.6, result);
+        double result = calculate(50.00,  "NY",ShippingType.STANDARD);
+        assertEquals(63.6, result,2);
     }
+
     @Test
+    @DisplayName("Test boundary when cost is 50.01 on standard shipping and state with TAX")
     void test3() {
-        double result = calculate(40.0, "NY",ShippingType.STANDARD);
-        assertEquals(53.0, result);
+        double result = calculate(50.01,  "CA",ShippingType.STANDARD);
+        assertEquals(53.01, result,2);
     }
 
 
+
+    /*Test boundary cost of 49.98, 50.00, 50.01 when shipping is NEXT_DAY and state with TAX*/
     @Test
-    @DisplayName("Test boundary when cost is 49.98 on standard shipping")
+    @DisplayName("Test boundary when cost is 49.98 on next_day shipping and state with TAX")
     void test4() {
-        double result = calculate(49.98,"WI",ShippingType.STANDARD);
-        assertEquals(59.98, result);
+        double result = calculate(49.98,"IL",ShippingType.NEXT_DAY);
+        assertEquals(79.47, result,2);
     }
 
     @Test
-    @DisplayName("Test boundary when cost is 50.01 on standard shipping")
+    @DisplayName("Test boundary when cost is 50.00 on next_day shipping and state with TAX")
     void test5() {
-        double result = calculate(50.01,  "WI",ShippingType.STANDARD);
-        assertEquals(50.01, result);
+        double result = calculate(50.00,  "NY",ShippingType.NEXT_DAY);
+        assertEquals(79.5, result,2);
     }
 
+    @Test
+    @DisplayName("Test boundary when cost is 50.01 on next_day shipping and state with TAX")
+    void test6() {
+        double result = calculate(50.01,  "CA",ShippingType.NEXT_DAY);
+        assertEquals(53.01, result,2);
+    }
+
+
+
+    /*Test boundary cost of 49.98, 50.00, 50.01 when shipping is STANDARD and state with NO TAX*/
+    @Test
+    @DisplayName("Test boundary when cost is 49.98 on standard shipping and state with NO TAX")
+    void test7() {
+        double result = calculate(49.98,"CO",ShippingType.STANDARD);
+        assertEquals(59.98, result,2);
+    }
+
+    @Test
+    @DisplayName("Test boundary when cost is 50.00 on standard shipping and state with NO TAX")
+    void test8() {
+        double result = calculate(50.00,  "WI",ShippingType.STANDARD);
+        assertEquals(60.00, result,2);
+    }
+
+    @Test
+    @DisplayName("Test boundary when cost is 50.01 on standard shipping and state with NO TAX")
+    void test9() {
+        double result = calculate(50.01,  "GA",ShippingType.STANDARD);
+        assertEquals(50.01, result,2);
+    }
+
+
+    /*Test boundary cost of 49.98, 50.00, 50.01 when shipping is NEXT_DAY and state with NO TAX*/
+    @Test
+    @DisplayName("Test boundary when cost is 49.98 on next_day shipping and state with NO TAX")
+    void test10() {
+        double result = calculate(49.98,"FL",ShippingType.NEXT_DAY);
+        assertEquals(74.97, result,2);
+    }
+
+    @Test
+    @DisplayName("Test boundary when cost is 50.00 on next_day shipping and state with NO TAX")
+    void test11() {
+        double result = calculate(50.00,  "AZ",ShippingType.NEXT_DAY);
+        assertEquals(75.00, result,2);
+    }
+    @Test
+    @DisplayName("Test boundary when cost is 50.01 on next_day shipping and state with NO TAX")
+    void test12() {
+        double result = calculate(50.01,  "MO",ShippingType.NEXT_DAY);
+        assertEquals(50.01, result,2);
+    }
+
+
+    
    /*
     @Test
     @DisplayName("Test the sales tax and shipping method when total cost is 0")
-    void test6() {
+    void test4() {
         assertThrows(IllegalArgumentException.class, () -> calculate(0.0, "NY",ShippingType.STANDARD));
     }
 
 
     @Test
     @DisplayName("Test standard shipping when shipping is out of country")
-    void test7() {
+    void test5() {
         double result = calculate(10.0, "Turkey",ShippingType.STANDARD);
         fail("Sorry!! Shipping State is outside US");
     }*/

@@ -1,3 +1,6 @@
 ﻿Initial Cost,State,Shipping Type,Expected Result(cost)
 40,IL,STANDARD,53
-40,IL,STANDARD,53
+60,CO,NEXT_DAY,60
+-40,IL,STANDARD,53
+60,NULL,NEXT_DAY,53
+40,IL,FREE,53
