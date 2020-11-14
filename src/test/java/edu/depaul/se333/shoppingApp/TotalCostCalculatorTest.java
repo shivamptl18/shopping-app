@@ -164,21 +164,13 @@ public class TotalCostCalculatorTest {
     }
 
 
-    
-   /*
-    @Test
-    @DisplayName("Test the sales tax and shipping method when total cost is 0")
-    void test4() {
-        assertThrows(IllegalArgumentException.class, () -> calculate(0.0, "NY",ShippingType.STANDARD));
-    }
-
 
     @Test
     @DisplayName("Test standard shipping when shipping is out of country")
-    void test5() {
+    void test88() {
         double result = calculate(10.0, "Turkey",ShippingType.STANDARD);
         fail("Sorry!! Shipping State is outside US");
-    }*/
+    }
 
 
 
