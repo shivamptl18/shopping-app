@@ -1,4 +1,4 @@
-package step_definitions;
+package edu.depaul.se333.shoppingApp.step_definitions;
 
 import edu.depaul.se433.shoppingapp.ShippingType;
 import edu.depaul.se433.shoppingapp.TotalCostCalculator;
@@ -29,7 +29,7 @@ public class TotalCostCalculationSteps {
         }
     }
 
-    @And("Customer lives in a {stateWithTax} that has Tax")
+    @And("Customer lives in a {String} that has Tax")
     public void customer_lives_in_a_state_that_has_tax() {
         ArrayList<String> statesWithTax = new ArrayList<String>();
         statesWithTax.add("IL");
@@ -40,7 +40,7 @@ public class TotalCostCalculationSteps {
         state = statesWithTax.get(new Random().nextInt(statesWithTax.size()));
     }
 
-    @And("Customer wants {shipping} Shipping")
+    @And("Customer wants {ShippingType} Shipping")
     public void customer_wants_next_day_shipping() {
         shipping = ShippingType.NEXT_DAY;
     }
