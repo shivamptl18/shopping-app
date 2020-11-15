@@ -6,50 +6,45 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import static edu.depaul.se433.shoppingapp.TotalCostCalculator.calculate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TotalCostCalculationSteps {
-    private double initalCost  = 0;
-    private String state = "";
-    private ShippingType shipping;
+    double initialCost = 0;
+    String state = "";
+    String shipping;
 
     private TotalCostCalculator calculator = new TotalCostCalculator();
 
 
-    @Given("Customer has selected items totaling greater than ${double} ")
+    @Given("Customer has selected items totaling {double} which greater than $50")
     public void customer_has_selected_items_totaling_greater_$50(Double double1) {
-        if (initalCost > 50.0) {
-            initalCost = double1;
+        if (initialCost > 50.0) {
+            initialCost = double1;
 
         }
     }
 
-    @And("Customer lives in a {String} that has Tax")
-    public void customer_lives_in_a_state_that_has_tax() {
-        ArrayList<String> statesWithTax = new ArrayList<String>();
-        statesWithTax.add("IL");
-        statesWithTax.add("NY");
-        statesWithTax.add("CA");
 
-
-        state = statesWithTax.get(new Random().nextInt(statesWithTax.size()));
+    @And("The Customer lives in a {string} with tax")
+    public void customer_lives_in_a_state_with_tax(String s) {
+        this.state = s;
     }
 
-    @And("Customer wants {ShippingType} Shipping")
-    public void customer_wants_next_day_shipping() {
-        shipping = ShippingType.NEXT_DAY;
+    @And("The Customer chooses {string} shipping")
+    public void customer_chooses_shippingType(String type) {
+        if (type.contains(" "))
+            type = type.replace(" ", "_");
+        this.shipping = type;
     }
 
-    @Then("The total cost with shipping/tax is {double} dollars")
-    public void the_total_cost_with_shipping_and_tax(double expected){
-        double result = calculate(60.00,  "CA",ShippingType.NEXT_DAY);
-        assertEquals(63.6, expected,2);
+
+    @Then("The total cost with shipping and tax is {double} dollars")
+    public void the_total_cost_with_shipping_and_tax(double expected) {
+        double result = (double) TotalCostCalculator.calculate(60.00, "CA", ShippingType.NEXT_DAY);
+        assertEquals(63.6, result);
     }
+
 
 
 

@@ -1,18 +1,18 @@
 package edu.depaul.se333.shoppingApp;
-import static edu.depaul.se433.shoppingapp.TotalCostCalculator.calculate;
-import static org.junit.jupiter.api.Assertions.*;
-
 import edu.depaul.se433.shoppingapp.ShippingType;
 import edu.depaul.se433.shoppingapp.TotalCostCalculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+
+import static edu.depaul.se433.shoppingapp.TotalCostCalculator.calculate;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.ParameterizedTest;
+
 public class TotalCostCalculatorTest {
 
     private TotalCostCalculator calculator;
