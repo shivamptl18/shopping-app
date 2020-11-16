@@ -33,7 +33,7 @@ dependencies {
     testImplementation "io.cucumber:cucumber-junit:$cucumberVersion"
 }
 
-task cucmberCostTest(type: Test){
+task cucumberCostTest(type: Test){
     include "shoppingapp/TestRunner"
 }
 
@@ -52,7 +52,7 @@ bootJar {
 def test = tasks.named("test") {
 
     useJUnitPlatform ()
-    finalizedBy cucmberCostTest
+    finalizedBy cucumberCostTest
     finalizedBy jacocoTestReport
 
     afterTest { desc, result ->
